@@ -13,7 +13,7 @@
             if (IsEffectible(item))
             {
                 var effect = GetEffect(item);
-                this.hero.Get<IComponent_Effector>().Apply(effect);
+                hero.Get<IComponent_Effector>().Apply(effect);
             }
         }
 
@@ -22,7 +22,7 @@
             if (IsEffectible(item))
             {
                 var effect = GetEffect(item);
-                this.hero.Get<IComponent_Effector>().Discard(effect);
+                hero.Get<IComponent_Effector>().Discard(effect);
             }
         }
 

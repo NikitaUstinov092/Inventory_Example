@@ -2,7 +2,7 @@ using UnityEngine;
 
 [CreateAssetMenu(
     fileName = "InventoryItemConfig",
-    menuName = "Lessons/New InventoryItemConfig"
+    menuName = "Inventory/New InventoryItemConfig"
 )]
 public sealed class InventoryItemConfig : ScriptableObject
 {

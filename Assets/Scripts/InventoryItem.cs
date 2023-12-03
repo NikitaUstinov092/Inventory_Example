@@ -62,6 +62,6 @@ public sealed class InventoryItem
             components[i] = component;
         }
             
-        return new InventoryItem(this.name, this.flags, this.metadata, this.components);
+        return new InventoryItem(name, flags, metadata, this.components);
     }
 }
