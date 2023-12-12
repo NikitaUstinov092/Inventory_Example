@@ -6,9 +6,7 @@ using UnityEngine;
     {
         [ShowInInspector]
         public readonly ListInventory Inventory = new();
-
-      
-
+        
         [Button]
         public void AddItem(InventoryItemConfig config)
         {

@@ -1,24 +1,13 @@
 using UnityEngine;
 
-public class HeroService : MonoBehaviour, IEntity
+public class HeroService : MonoBehaviour, IHeroService
 {
-   [SerializeField] 
-   private Entity _entity;
+   [SerializeField]
+   private MonoEntity hero;
 
-
-   T IEntity.Get<T>()
+   public IEntity GetHero()
    {
-      throw new System.NotImplementedException();
-   }
-
-   bool IEntity.TryGet<T>(out T element)
-   {
-      throw new System.NotImplementedException();
-   }
-
-   object[] IEntity.GetAll()
-   {
-      throw new System.NotImplementedException();
+      return this.hero;
    }
 }
 
