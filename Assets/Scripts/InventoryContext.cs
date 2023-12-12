@@ -2,7 +2,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 
 
-    public sealed class InventoryContext : MonoBehaviour
+    public sealed class InventoryContext : MonoBehaviour, IGetInventory<ListInventory>
     {
         [ShowInInspector]
         public readonly ListInventory Inventory = new();
@@ -20,4 +20,14 @@ using UnityEngine;
         {
             Inventory.RemoveItem(config.item.Name);
         }
+
+        public ListInventory GetInventory()
+        {
+            return Inventory;
+        }
     }
+
+public interface IGetInventory <T>
+{
+  T GetInventory();
+}
