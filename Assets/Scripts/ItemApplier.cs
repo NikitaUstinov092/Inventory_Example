@@ -1,18 +1,36 @@
+using System;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class ItemApplier : MonoBehaviour
 {
-    [SerializeField] private InventoryContext _inventoryContext;
-    [SerializeField] private InventoryItem _item;
+    public event Action<InventoryItem> OnItemApplied;
+    public event Action<InventoryItem> OnItemReturned;
+    
+    [SerializeField] 
+    private InventoryContext _inventoryContext;
 
     [Button]
     public void ApplyItem(string name)
     {
-        if (_inventoryContext.Inventory.FindItem(name, out _item))
+        var inventory = _inventoryContext.Inventory;
+        
+        if (inventory.FindItem(name, out var item))
         {
-            Debug.Log($"Success + {_item.Name}" );
+            inventory.RemoveItem(item);
+            OnItemApplied?.Invoke(item);
         }
+        else
+        {
+            throw new Exception($"Предмет с именем {name} не найден!");
+        }
+    }
+    
+    [Button]
+    public void ReturnItemInventory(InventoryItem item)
+    {
+        _inventoryContext.Inventory.AddItem(item);
+        OnItemReturned?.Invoke(item);
     }
     private void Start()
     {

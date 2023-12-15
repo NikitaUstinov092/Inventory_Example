@@ -1,10 +1,13 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Entity : MonoBehaviour, IEntity
 {
-    // Заглушка. TO DO иправить
+    private List<object> _components = new();
+    public void AddComponent(params object[] components)
+    {
+        _components.Add(components);
+    }
 
     T IEntity.Get<T>()
     {
@@ -18,6 +21,6 @@ public class Entity : MonoBehaviour, IEntity
 
     object[] IEntity.GetAll()
     {
-        throw new System.NotImplementedException();
+        return _components.ToArray();
     }
 }

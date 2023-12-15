@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sword
   m_EditorClassIdentifier: 
   item:
-    name: 
+    name: Sword
     flags: 0
     metadata:
       title: 

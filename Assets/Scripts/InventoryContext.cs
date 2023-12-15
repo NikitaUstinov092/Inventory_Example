@@ -14,7 +14,7 @@ using UnityEngine;
             var inventoryItem = prefab.Clone();
             Inventory.AddItem(inventoryItem);
         }
-
+        
         [Button]
         public void RemoveItem(InventoryItemConfig config)
         {

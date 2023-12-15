@@ -3,11 +3,11 @@ using UnityEngine;
 public class HeroService : MonoBehaviour, IHeroService
 {
    [SerializeField]
-   private MonoEntity hero;
+   private Entity hero;
 
    public IEntity GetHero()
    {
-      return this.hero;
+      return hero;
    }
 }
 
