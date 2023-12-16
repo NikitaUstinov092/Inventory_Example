@@ -12,35 +12,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a22487d842414666b12f9ae5a7f89099, type: 3}
   m_Name: Sword
   m_EditorClassIdentifier: 
-  item:
-    name: Sword
-    flags: 12
-    metadata:
-      title: 
-      description: 
-      icon: {fileID: 0}
-    components:
-    - rid: 3697461973902426113
-    - rid: 838520926060150785
+  Item:
+    _name: Sword
+    _flags: 15
+    _metadata:
+      Title: 
+      Description: 
+      Icon: {fileID: 0}
+    _components:
+    - rid: 838520933871517704
+    - rid: 838520933871517707
   references:
     version: 2
     RefIds:
-    - rid: 838520926060150785
+    - rid: 838520933871517704
+      type: {class: Component_Effect, ns: , asm: Assembly-CSharp}
+      data:
+        _effect:
+          rid: 838520933871517705
+    - rid: 838520933871517705
+      type: {class: Effect, ns: , asm: Assembly-CSharp}
+      data:
+        _parameters:
+        - rid: 838520933871517706
+    - rid: 838520933871517706
+      type: {class: FloatEffectParameter, ns: , asm: Assembly-CSharp}
+      data:
+        _name: 1
+        _value: 20
+    - rid: 838520933871517707
       type: {class: Component_Equipment, ns: , asm: Assembly-CSharp}
       data:
         _equipmentId: 1
-    - rid: 838520931362537472
-      type: {class: FloatEffectParameter, ns: , asm: Assembly-CSharp}
-      data:
-        name: 1
-        value: 10
-    - rid: 3697461973902426113
-      type: {class: Component_Effect, ns: , asm: Assembly-CSharp}
-      data:
-        effect:
-          rid: 3697461973902426114
-    - rid: 3697461973902426114
-      type: {class: Effect, ns: , asm: Assembly-CSharp}
-      data:
-        parameters:
-        - rid: 838520931362537472

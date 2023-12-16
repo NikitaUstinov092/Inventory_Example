@@ -12,35 +12,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a22487d842414666b12f9ae5a7f89099, type: 3}
   m_Name: Hat
   m_EditorClassIdentifier: 
-  item:
-    name: Hat
-    flags: 12
-    metadata:
-      title: 
-      description: 
-      icon: {fileID: 0}
-    components:
-    - rid: 838520933871517696
-    - rid: 838520933871517697
+  Item:
+    _name: Hat
+    _flags: 15
+    _metadata:
+      Title: 
+      Description: 
+      Icon: {fileID: 0}
+    _components:
+    - rid: 838520933871517700
+    - rid: 838520933871517701
   references:
     version: 2
     RefIds:
-    - rid: 838520933871517696
+    - rid: 838520933871517700
       type: {class: Component_Effect, ns: , asm: Assembly-CSharp}
       data:
-        effect:
-          rid: 838520933871517698
-    - rid: 838520933871517697
+        _effect:
+          rid: 838520933871517702
+    - rid: 838520933871517701
       type: {class: Component_Equipment, ns: , asm: Assembly-CSharp}
       data:
         _equipmentId: 0
-    - rid: 838520933871517698
+    - rid: 838520933871517702
       type: {class: Effect, ns: , asm: Assembly-CSharp}
       data:
-        parameters:
-        - rid: 838520933871517699
-    - rid: 838520933871517699
+        _parameters:
+        - rid: 838520933871517703
+    - rid: 838520933871517703
       type: {class: FloatEffectParameter, ns: , asm: Assembly-CSharp}
       data:
-        name: 0
-        value: 5
+        _name: 0
+        _value: 11

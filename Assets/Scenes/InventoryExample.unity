@@ -420,7 +420,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 858526497}
-  - component: {fileID: 858526498}
   - component: {fileID: 858526500}
   - component: {fileID: 858526499}
   m_Layer: 0
@@ -445,19 +444,6 @@ Transform:
   m_Father: {fileID: 1978829726}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &858526498
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 858526496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00584abf8ca24c347a3119f4efe184e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _player: {fileID: 0}
 --- !u!114 &858526499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -483,7 +469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c89a8284e438e164e98241e48cbe159c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handlers:
+  _handlers:
   - {fileID: 858526499}
 --- !u!1 &880567716
 GameObject:
@@ -1069,7 +1055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb0b3955c1bd7394398ad5d7fbf941fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hero: {fileID: 8691024623980924917}
+  _hero: {fileID: 8691024623980924917}
 --- !u!114 &8691024623980924919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1082,9 +1068,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac36b817b3247ed83227d213905310f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  hitPoints: 0
-  damage: 0
+  Speed: 0
+  HitPoints: 0
+  Damage: 0
 --- !u!114 &8691024623980924920
 MonoBehaviour:
   m_ObjectHideFlags: 0
