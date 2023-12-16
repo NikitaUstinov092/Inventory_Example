@@ -10,12 +10,26 @@
         }
         void IInventoryObserver.OnItemAdded(InventoryItem item)
         {
-            throw new System.NotImplementedException();
+            if (IsEquppable(item))
+            {
+                var equipmentID = GetEquipmentID(item);
+                _hero.Get<IComponent_Equipment>().OpenEquipment(equipmentID);
+            }
         }
 
         void IInventoryObserver.OnItemRemoved(InventoryItem item)
         {
             throw new System.NotImplementedException();
+        }
+        
+        private static int GetEquipmentID(InventoryItem item)
+        {
+            return item.GetComponent<IComponent_GetEquipmentID>().GetEquipmentID();
+        }
+
+        private static bool IsEquppable(InventoryItem item)
+        {
+            return item.Flags.HasFlag(InventoryItemFlags.EQUPPABLE);
         }
     }
 }

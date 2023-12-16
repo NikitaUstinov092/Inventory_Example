@@ -1,3 +1,4 @@
+using DefaultNamespace.InventoryAppliers;
 using UnityEngine;
 
 public class InventoryAdapter : MonoBehaviour
@@ -14,6 +15,7 @@ public class InventoryAdapter : MonoBehaviour
     {
         var hero = _heroService.GetHero();
         _inventoryObserversContainer.AddObserver(new InventoryEffectsApplier(hero));
+        _inventoryObserversContainer.AddObserver(new InventoryEquipmentApplier(hero));
     }
 
     private void OnEnable()

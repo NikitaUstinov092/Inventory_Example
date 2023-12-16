@@ -5,3 +5,5 @@
 
         bool TryGetParameter<T>(EffectId name, out T value);
     }
+
+   

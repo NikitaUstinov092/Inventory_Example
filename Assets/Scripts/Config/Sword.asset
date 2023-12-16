@@ -14,16 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item:
     name: Sword
-    flags: 0
+    flags: 12
     metadata:
       title: 
       description: 
       icon: {fileID: 0}
     components:
     - rid: 3697461973902426113
+    - rid: 838520926060150785
   references:
     version: 2
     RefIds:
+    - rid: 838520926060150785
+      type: {class: Component_Equipment, ns: , asm: Assembly-CSharp}
+      data:
+        _equipmentId: 0
     - rid: 3697461973902426113
       type: {class: Component_Effect, ns: , asm: Assembly-CSharp}
       data:
@@ -37,5 +42,5 @@ MonoBehaviour:
     - rid: 3697461973902426115
       type: {class: IntEffectParameter, ns: , asm: Assembly-CSharp}
       data:
-        name: 0
-        value: 0
+        name: 1
+        value: 10

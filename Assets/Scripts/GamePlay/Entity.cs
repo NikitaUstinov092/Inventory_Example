@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class Entity : MonoBehaviour, IEntity
 {
-    private List<object> _components = new();
+    [ShowInInspector]
+    private readonly List<object> _components = new();
     public void AddComponent(params object[] components)
     {
         _components.Add(components);
