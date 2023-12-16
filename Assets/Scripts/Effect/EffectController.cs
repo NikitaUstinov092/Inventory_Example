@@ -8,14 +8,17 @@ namespace DefaultNamespace.Effect
         public Action<IEffect> OnApplied { get; set; }
         public Action<IEffect> OnDiscarded { get; set; }
 
+        [SerializeField]
+        private Player _player;
+
         public void Apply(IEffect effect)
         {
-            throw new NotImplementedException();
+            
         }
 
         public void Discard(IEffect effect)
         {
-            throw new NotImplementedException();
+           
         }
     }
 }

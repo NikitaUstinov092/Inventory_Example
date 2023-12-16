@@ -281,7 +281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca74889aad08f024c80f4f5299fce768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _effectController: {fileID: 858526498}
+  _effectController: {fileID: 858526500}
 --- !u!1 &698087808
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,6 +421,8 @@ GameObject:
   m_Component:
   - component: {fileID: 858526497}
   - component: {fileID: 858526498}
+  - component: {fileID: 858526500}
+  - component: {fileID: 858526499}
   m_Layer: 0
   m_Name: EffectController
   m_TagString: Untagged
@@ -455,6 +457,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00584abf8ca24c347a3119f4efe184e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player: {fileID: 0}
+--- !u!114 &858526499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858526496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51f5733b618dbc040af3c49449e4be44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageMultiplier: 10
+  _player: {fileID: 8691024623980924919}
+--- !u!114 &858526500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858526496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c89a8284e438e164e98241e48cbe159c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handlers:
+  - {fileID: 858526499}
 --- !u!1 &880567716
 GameObject:
   m_ObjectHideFlags: 0
@@ -1067,7 +1098,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4e2d374fb7b84a4f8f99b75bb140296, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _monoBehaviours: []
+  _monoBehavioursComp:
+  - {fileID: 529890468}
+  - {fileID: 825161440}
 --- !u!1 &8691254838868076508
 GameObject:
   m_ObjectHideFlags: 0

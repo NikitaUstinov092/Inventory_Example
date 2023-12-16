@@ -28,7 +28,12 @@ MonoBehaviour:
     - rid: 838520926060150785
       type: {class: Component_Equipment, ns: , asm: Assembly-CSharp}
       data:
-        _equipmentId: 0
+        _equipmentId: 1
+    - rid: 838520931362537472
+      type: {class: FloatEffectParameter, ns: , asm: Assembly-CSharp}
+      data:
+        name: 1
+        value: 10
     - rid: 3697461973902426113
       type: {class: Component_Effect, ns: , asm: Assembly-CSharp}
       data:
@@ -38,9 +43,4 @@ MonoBehaviour:
       type: {class: Effect, ns: , asm: Assembly-CSharp}
       data:
         parameters:
-        - rid: 3697461973902426115
-    - rid: 3697461973902426115
-      type: {class: IntEffectParameter, ns: , asm: Assembly-CSharp}
-      data:
-        name: 1
-        value: 10
+        - rid: 838520931362537472
