@@ -19,7 +19,11 @@
 
         void IInventoryObserver.OnItemRemoved(InventoryItem item)
         {
-            throw new System.NotImplementedException();
+            if (IsEquppable(item))
+            {
+                var equipmentID = GetEquipmentID(item);
+                _hero.Get<IComponent_Equipment>().CloseEquipment(equipmentID);
+            }
         }
         
         private static int GetEquipmentID(InventoryItem item)

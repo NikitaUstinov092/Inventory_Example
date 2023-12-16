@@ -1,14 +1,10 @@
 using Game.GameEngine.Mechanics;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 
 [AddComponentMenu("GameEngine/Mechanics/Effects/Effect Handler «Melee Damage»")]
     public sealed class UEffectHandler_MeleeDamage : UEffectHandler
     {
-        [SerializeField]
-        private int _damageMultiplier;
-
         [SerializeField] 
         private Player _player;
         
