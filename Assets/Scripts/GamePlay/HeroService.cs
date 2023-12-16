@@ -1,13 +1,14 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class HeroService : MonoBehaviour, IHeroService
 {
-   [SerializeField]
-   private Entity hero;
+   [FormerlySerializedAs("hero")] [SerializeField]
+   private Entity _hero;
 
    public IEntity GetHero()
    {
-      return hero;
+      return _hero;
    }
 }
 

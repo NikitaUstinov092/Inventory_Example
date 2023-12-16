@@ -1,11 +1,12 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-    [Serializable]
+[Serializable]
     public sealed class Component_Effect : IComponent_GetEffect
     {
-        public IEffect Effect => effect;
+        public IEffect Effect => _effect;
 
         [SerializeReference]
-        private IEffect effect = default;
+        private IEffect _effect = default;
     }

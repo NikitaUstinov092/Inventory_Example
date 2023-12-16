@@ -4,23 +4,23 @@ using Sirenix.OdinInspector;
     public sealed class ListInventory
     {
         [ShowInInspector, ReadOnly]
-        private readonly List<InventoryItem> items;
+        private readonly List<InventoryItem> _items;
         public ListInventory(params InventoryItem[] items)
         {
-            this.items = new List<InventoryItem>(items);
+             _items = new List<InventoryItem>(items);
         }
         public void AddItem(InventoryItem item)
         {
-            if (!items.Contains(item))
+            if (!_items.Contains(item))
             {
-                items.Add(item);
+                _items.Add(item);
             }
         }
         public void RemoveItem(InventoryItem item)
         {
-            if (items.Contains(item))
+            if (_items.Contains(item))
             {
-                items.Remove(item);
+                _items.Remove(item);
             }
         }
         public void RemoveItem(string name)
@@ -32,11 +32,11 @@ using Sirenix.OdinInspector;
         }
         public List<InventoryItem> GetItems()
         {
-            return items.ToList();
+            return _items.ToList();
         }
         public bool FindItem(string name, out InventoryItem result)
         {
-            foreach (var inventoryItem in items)
+            foreach (var inventoryItem in _items)
             {
                 if (inventoryItem.Name == name)
                 {

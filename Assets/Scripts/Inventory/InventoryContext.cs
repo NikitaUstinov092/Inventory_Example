@@ -1,7 +1,6 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-
     public sealed class InventoryContext : MonoBehaviour, IGetInventory<ListInventory>
     {
         [ShowInInspector]
@@ -10,7 +9,7 @@ using UnityEngine;
         [Button]
         public void AddItem(InventoryItemConfig config)
         {
-            var prefab = config.item;
+            var prefab = config.Item;
             var inventoryItem = prefab.Clone();
             Inventory.AddItem(inventoryItem);
         }
@@ -18,7 +17,7 @@ using UnityEngine;
         [Button]
         public void RemoveItem(InventoryItemConfig config)
         {
-            Inventory.RemoveItem(config.item.Name);
+            Inventory.RemoveItem(config.Item.Name);
         }
 
         public ListInventory GetInventory()

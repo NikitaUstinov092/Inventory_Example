@@ -470,7 +470,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51f5733b618dbc040af3c49449e4be44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageMultiplier: 10
   _player: {fileID: 8691024623980924919}
 --- !u!114 &858526500
 MonoBehaviour:
@@ -1037,8 +1036,8 @@ GameObject:
   - component: {fileID: 8688968705143329744}
   - component: {fileID: 8691024623980924918}
   - component: {fileID: 8691024623980924917}
-  - component: {fileID: 8691024623980924919}
   - component: {fileID: 8691024623980924920}
+  - component: {fileID: 8691024623980924919}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(
     fileName = "InventoryItemConfig",
@@ -6,6 +7,6 @@ using UnityEngine;
 )]
 public sealed class InventoryItemConfig : ScriptableObject
 {
-    [SerializeField]
-    public InventoryItem item;
+    [FormerlySerializedAs("item")] [SerializeField]
+    public InventoryItem Item;
 }

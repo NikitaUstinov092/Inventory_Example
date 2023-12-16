@@ -1,7 +1,8 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-    public interface IEffectParameter
+public interface IEffectParameter
     {
         EffectId Name { get; }
     }
@@ -16,19 +17,19 @@ using UnityEngine;
     {
         public EffectId Name
         {
-            get { return this.name; }
+            get { return _name; }
         }
 
         public T Value
         {
-            get { return this.value; }
+            get { return _value; }
         }
 
-        [SerializeField]
-        private EffectId name;
+        [FormerlySerializedAs("name")] [SerializeField]
+        private EffectId _name;
 
-        [SerializeField]
-        private T value;
+        [FormerlySerializedAs("value")] [SerializeField]
+        private T _value;
 
         public AbstractEffectParameter()
         {
@@ -36,8 +37,8 @@ using UnityEngine;
 
         public AbstractEffectParameter(EffectId name, T value)
         {
-            this.name = name;
-            this.value = value;
+            _name = name;
+            _value = value;
         }
     }
 

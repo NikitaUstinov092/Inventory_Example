@@ -1,10 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class EntityInstaller : MonoBehaviour
 {
-   [FormerlySerializedAs("_monoBehaviours")] [SerializeField] private List<MonoBehaviour> _monoBehavioursComp;
+   [SerializeField] private List<MonoBehaviour> _monoBehavioursComp;
 
    private void Awake()
    {

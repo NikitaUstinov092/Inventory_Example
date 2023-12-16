@@ -1,43 +1,43 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 
-    [Serializable]
+[Serializable]
     public sealed class Effect : IEffect
     {
-        [SerializeReference]
-        private List<IEffectParameter> parameters;
+        [FormerlySerializedAs("parameters")] [SerializeReference]
+        private List<IEffectParameter> _parameters;
 
         public Effect()
         {
-            this.parameters = new List<IEffectParameter>();
+            _parameters = new List<IEffectParameter>();
         }
 
         public Effect(params IEffectParameter[] parameters)
         {
-            this.parameters = new List<IEffectParameter>(parameters);
+            _parameters = new List<IEffectParameter>(parameters);
         }
 
         public T GetParameter<T>(EffectId name)
         {
-            for (int i = 0, count = this.parameters.Count; i < count; i++)
+            for (int i = 0, count = _parameters.Count; i < count; i++)
             {
-                var parameter = this.parameters[i];
+                var parameter = _parameters[i];
                 if (parameter.Name == name && parameter is IEffectParameter<T> tParameter)
                 {
                     return tParameter.Value;
                 }
             }
-
-            throw new Exception($"Parameter {name} is not found!");
+            throw new Exception($"Параметр {name} не найден!");
         }
 
         public bool TryGetParameter<T>(EffectId name, out T value)
         {
-            for (int i = 0, count = this.parameters.Count; i < count; i++)
+            for (int i = 0, count = this._parameters.Count; i < count; i++)
             {
-                var parameter = this.parameters[i];
+                var parameter = this._parameters[i];
                 if (parameter.Name == name && parameter is IEffectParameter<T> tParameter)
                 {
                     value = tParameter.Value;

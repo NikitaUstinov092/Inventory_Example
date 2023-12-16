@@ -12,7 +12,7 @@ using UnityEngine;
         {
             if (effect.TryGetParameter<float>(EffectId.DAMAGE, out var multiplier))
             {
-                _player.damage += (int)multiplier;
+                _player.Damage += (int)multiplier;
             }
         }
 
@@ -20,7 +20,7 @@ using UnityEngine;
         {
             if (effect.TryGetParameter<float>(EffectId.DAMAGE, out var multiplier))
             {
-                _player.damage -= (int)multiplier;
+                _player.Damage -= (int)multiplier;
             }
         }
     }
