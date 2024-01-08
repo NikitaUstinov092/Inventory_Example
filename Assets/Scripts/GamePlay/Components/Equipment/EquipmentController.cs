@@ -22,4 +22,9 @@ public class EquipmentController: MonoBehaviour
     {
         return _equipment[id].activeInHierarchy;
     }
+    
+    public int GetCount()
+    {
+        return _equipment.Length;
+    }
 }

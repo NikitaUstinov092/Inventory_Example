@@ -1,8 +1,9 @@
 using UnityEngine;
+using Zenject;
 
 public class UComponent_Equipment : MonoBehaviour, IComponent_Equipment
 {
-    [SerializeField]
+    [Inject]
     private EquipmentController _equipmentController;
    
     public void OpenEquipment(int id)

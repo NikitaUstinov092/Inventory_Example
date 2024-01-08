@@ -32,7 +32,7 @@ using Sirenix.OdinInspector;
         }
         public List<InventoryItem> GetItems()
         {
-            return _items.ToList();
+            return _items;
         }
         public bool FindItem(string name, out InventoryItem result)
         {
