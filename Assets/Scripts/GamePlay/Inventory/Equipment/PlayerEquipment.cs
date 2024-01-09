@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-    public class AppliedItemsStorage
+    public class PlayerEquipment
     {
-        private List<InventoryItem> _appliedItems = new();
+        private readonly List<InventoryItem> _appliedItems = new();
 
         public void AddItem(InventoryItem item)
         {

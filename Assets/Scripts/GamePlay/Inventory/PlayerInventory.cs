@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using Sirenix.OdinInspector;
-    public sealed class ListInventory
+    public sealed class PlayerInventory
     {
         [ShowInInspector, ReadOnly]
         private readonly List<InventoryItem> _items;
-        public ListInventory(params InventoryItem[] items)
+        public PlayerInventory(params InventoryItem[] items)
         {
              _items = new List<InventoryItem>(items);
         }

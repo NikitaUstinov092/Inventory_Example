@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class EquipmentController: MonoBehaviour
 {
-    [SerializeField] private GameObject[] _equipment;
+    [SerializeField] 
+    private GameObject[] _equipment;
 
     public void SetUp(params GameObject[] equipment)
     {

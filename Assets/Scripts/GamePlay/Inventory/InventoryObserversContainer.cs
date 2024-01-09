@@ -2,14 +2,14 @@ using System.Collections.Generic;
 
 public class InventoryObserversContainer 
 {
-    private readonly List<IInventoryObserver> _observers = new();
+    private readonly List<IEquipmentObserver> _observers = new();
    
-    public void AddObserver(IInventoryObserver observer)
+    public void AddObserver(IEquipmentObserver observer)
     {
         _observers.Add(observer);
     }
 
-    public void RemoveObserver(IInventoryObserver observer)
+    public void RemoveObserver(IEquipmentObserver observer)
     {
         _observers.Remove(observer);            
     }

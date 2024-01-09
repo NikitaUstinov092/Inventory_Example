@@ -4,7 +4,7 @@ using UnityEngine;
     public sealed class InventoryContext: MonoBehaviour
     {
         [ShowInInspector]
-        public readonly ListInventory Inventory = new();
+        public readonly PlayerInventory Inventory = new();
         
         [Button]
         public void AddItem(InventoryItemConfig config)
@@ -28,11 +28,6 @@ using UnityEngine;
                 var inventoryItem = prefab.Clone();
                 Inventory.AddItem(inventoryItem);
             }
-        }
-
-        public ListInventory GetInventory()
-        {
-            return Inventory;
         }
     }
 

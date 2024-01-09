@@ -43,7 +43,6 @@ public sealed class InventoryItem
                 return tComponent;
             }
         }
-
         throw new Exception($"Component of type {typeof(T).Name} is not found!");
     }
 

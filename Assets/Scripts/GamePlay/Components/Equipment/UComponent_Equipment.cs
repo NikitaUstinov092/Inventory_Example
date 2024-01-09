@@ -1,7 +1,6 @@
-using UnityEngine;
 using Zenject;
 
-public class UComponent_Equipment : MonoBehaviour, IComponent_Equipment
+public class UComponent_Equipment : IComponent_Equipment
 {
     [Inject]
     private EquipmentController _equipmentController;

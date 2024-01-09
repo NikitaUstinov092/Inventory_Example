@@ -1,9 +1,8 @@
 using System;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
-using UnityEngine;
 
-public class Entity : MonoBehaviour, IEntity
+public class Entity : IEntity
 {
     [ShowInInspector]
     private readonly List<object> _components = new();

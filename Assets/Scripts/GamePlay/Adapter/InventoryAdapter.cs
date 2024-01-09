@@ -3,35 +3,37 @@ using Zenject;
 
 public class InventoryAdapter: IInitializable, ILateDisposable 
 {
-    private ItemApplier _itemApplier;
+    private InventoryItemEquipper _itemEquipper;
     private IHeroService _heroService;
     private InventoryObserversContainer _inventoryObserversContainer;
+    private DiContainer _diContainer;
     
     [Inject]
-    private void Construct(ItemApplier itemApplier, IHeroService heroService, InventoryObserversContainer inventoryObserversContainer)
+    private void Construct(DiContainer diContainer)
     {
-        _itemApplier = itemApplier;
-        _heroService = heroService;
-        _inventoryObserversContainer = inventoryObserversContainer;
+        _diContainer = diContainer;
+        _itemEquipper = diContainer.Resolve<InventoryItemEquipper>();
+        _heroService = diContainer.Resolve<IHeroService>();;
+        _inventoryObserversContainer = diContainer.Resolve<InventoryObserversContainer>();;
     }
     private void InitInventoryObservers()
     {
         var hero = _heroService.GetHero();
-        _inventoryObserversContainer.AddObserver(new InventoryEffectsApplier(hero));
-        _inventoryObserversContainer.AddObserver(new InventoryEquipmentApplier(hero));
+        _inventoryObserversContainer.AddObserver(_diContainer.Resolve<EquipmentEffectsApplier>());
+        _inventoryObserversContainer.AddObserver(_diContainer.Resolve<EquipmentApplier>());
     }
     
     void IInitializable.Initialize()
     {
         InitInventoryObservers();
         
-        _itemApplier.OnItemApplied += _inventoryObserversContainer.OnItemAdded;
-        _itemApplier.OnItemReturned += _inventoryObserversContainer.OnItemRemoved;
+        _itemEquipper.OnItemApplied += _inventoryObserversContainer.OnItemAdded;
+        _itemEquipper.OnItemReturned += _inventoryObserversContainer.OnItemRemoved;
     }
 
     void ILateDisposable.LateDispose()
     {
-        _itemApplier.OnItemApplied -= _inventoryObserversContainer.OnItemAdded;
-        _itemApplier.OnItemReturned -= _inventoryObserversContainer.OnItemRemoved;
+        _itemEquipper.OnItemApplied -= _inventoryObserversContainer.OnItemAdded;
+        _itemEquipper.OnItemReturned -= _inventoryObserversContainer.OnItemRemoved;
     }
 }

@@ -1,14 +1,22 @@
-﻿namespace DefaultNamespace.InventoryAppliers
-{
-    public class InventoryEquipmentApplier: IInventoryObserver
-    {
-        private readonly IEntity _hero;
+﻿using Zenject;
 
-        public InventoryEquipmentApplier(IEntity hero)
+namespace DefaultNamespace.InventoryAppliers
+{
+    public class EquipmentApplier: IEquipmentObserver
+    {
+        private IEntity _hero;
+
+        // public EquipmentApplier(IEntity hero)
+        // {
+        //     _hero = hero;
+        // }
+
+        [Inject]
+        private void Construct(IEntity hero)
         {
             _hero = hero;
         }
-        void IInventoryObserver.OnItemAdded(InventoryItem item)
+        void IEquipmentObserver.OnItemAdded(InventoryItem item)
         {
             if (IsEquppable(item))
             {
@@ -17,7 +25,7 @@
             }
         }
 
-        void IInventoryObserver.OnItemRemoved(InventoryItem item)
+        void IEquipmentObserver.OnItemRemoved(InventoryItem item)
         {
             if (IsEquppable(item))
             {

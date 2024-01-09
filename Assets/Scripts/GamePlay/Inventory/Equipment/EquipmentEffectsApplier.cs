@@ -1,14 +1,17 @@
 
-    public sealed class InventoryEffectsApplier : IInventoryObserver
+    using Zenject;
+
+    public sealed class EquipmentEffectsApplier : IEquipmentObserver
     {
+        [Inject]
         private readonly IEntity _hero;
 
-        public InventoryEffectsApplier(IEntity hero)
-        {
-            _hero = hero;
-        }
+        // public EquipmentEffectsApplier(IEntity hero)
+        // {
+        //     _hero = hero;
+        // }
 
-        void IInventoryObserver.OnItemAdded(InventoryItem item)
+        void IEquipmentObserver.OnItemAdded(InventoryItem item)
         {
             if (IsEffectible(item))
             {
@@ -17,7 +20,7 @@
             }
         }
 
-        void IInventoryObserver.OnItemRemoved(InventoryItem item)
+        void IEquipmentObserver.OnItemRemoved(InventoryItem item)
         {
             if (IsEffectible(item))
             {

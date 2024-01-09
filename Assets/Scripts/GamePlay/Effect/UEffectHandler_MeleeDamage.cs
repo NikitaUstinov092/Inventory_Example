@@ -10,9 +10,14 @@ using UnityEngine;
         
         public override void OnApply(IEffect effect)
         {
-            if (effect.TryGetParameter<float>(EffectId.DAMAGE, out var multiplier))
+            if (effect.TryGetParameter<float>(EffectId.DAMAGE, out var damageMultiplier))
             {
-                _player.Damage += (int)multiplier;
+                _player.Damage += (int)damageMultiplier;
+            }
+            
+            if (effect.TryGetParameter<float>(EffectId.MOVE_SPEED, out var speed)) //TO DO убрать в другой класс
+            {
+                _player.Speed += speed;
             }
         }
 

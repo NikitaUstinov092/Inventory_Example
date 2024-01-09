@@ -1,4 +1,5 @@
 using System.Collections;
+using DefaultNamespace.InventoryAppliers;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
@@ -13,18 +14,37 @@ public class InventoryRun: ZenjectIntegrationTestFixture
     public IEnumerator InventoryRunWithEnumeratorPasses()
     {
         PreInstall();
-
-        Container.Bind<InventoryContext>().FromNewComponentOnNewGameObject().AsSingle();
-        Container.Bind<ItemApplier>().FromNewComponentOnNewGameObject().AsSingle();
-        Container.Bind<EquipmentController>().FromNewComponentOnNewGameObject().AsSingle(); 
-        Container.BindInterfacesAndSelfTo<InventoryAdapter>().AsSingle(); 
         
+        Container.Bind<EquipmentController>().FromNewComponentOnNewGameObject().AsSingle();
+        Container.Bind<InventoryContext>().FromNewComponentOnNewGameObject().AsSingle();
+        Container.Bind<InventoryItemEquipper>().FromNewComponentOnNewGameObject().AsSingle();
+        Container.BindInterfacesAndSelfTo<UEffector>().FromNewComponentOnNewGameObject().AsSingle();
+       
+        Container.Bind<InventoryObserversContainer>().AsSingle();
+        Container.BindInterfacesTo<InventoryAdapter>().AsSingle();
+        
+        Container.BindInterfacesAndSelfTo<UComponent_Equipment>().AsSingle();
+        Container.BindInterfacesAndSelfTo<UComponenet_Effector>().AsSingle();
+        
+        
+        Container.BindInterfacesAndSelfTo<EquipmentApplier>().AsSingle();
+        Container.BindInterfacesAndSelfTo<EquipmentEffectsApplier>().AsSingle();
+        
+        Container.BindInterfacesAndSelfTo<PlayerEntity>().AsSingle();
+        Container.BindInterfacesTo<PlayerEntityInstaller>().AsSingle();
+        Container.BindInterfacesTo<HeroService>().AsSingle();
 
         PostInstall();
 
         var _inventory = Container.Resolve<InventoryContext>();
-        var _applier = Container.Resolve<ItemApplier>();
+        var _applier = Container.Resolve<InventoryItemEquipper>();
         var _equipmentController = Container.Resolve<EquipmentController>();
+
+        var entity = new Entity();
+        entity.AddComponent(new UComponenet_Effector());
+        entity.AddComponent(new UComponent_Equipment());
+        
+        // _heroService.SetEntity(entity);
 
         var hatGo = new GameObject("Hat");
         var swordGo = new GameObject("Sword");
@@ -42,7 +62,7 @@ public class InventoryRun: ZenjectIntegrationTestFixture
         
         var config =  ScriptableObject.CreateInstance<InventoryItemConfig>();
         config.name = "Hat";
-        var item = new InventoryItem("Hat", itemFlags, new InventoryItemMetadata(),equipmentComp);
+        var item = new InventoryItem("Hat", itemFlags, new InventoryItemMetadata(), equipmentComp, new Component_Effect());
         config.Item = item;
          
         _inventory.SetUp(config);

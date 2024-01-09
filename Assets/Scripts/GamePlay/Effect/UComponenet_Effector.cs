@@ -1,9 +1,9 @@
 using System;
-using UnityEngine;
+using Zenject;
 
-public class UComponenet_Effector : MonoBehaviour, IComponent_Effector
+public class UComponenet_Effector : IComponent_Effector
 {
-   [SerializeField] 
+   [Inject] 
    private UEffector _effectController;
    public event Action<IEffect> OnApplied
    {
