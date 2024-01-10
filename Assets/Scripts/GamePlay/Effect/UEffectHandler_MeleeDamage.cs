@@ -10,12 +10,12 @@ using UnityEngine;
         
         public override void OnApply(IEffect effect)
         {
-            if (effect.TryGetParameter<float>(EffectId.DAMAGE, out var damageMultiplier))
+            if (effect.TryGetParameter<int>(EffectId.DAMAGE, out var damageMultiplier))
             {
-                _player.Damage += (int)damageMultiplier;
+                _player.Damage += damageMultiplier;
             }
             
-            if (effect.TryGetParameter<float>(EffectId.MOVE_SPEED, out var speed)) //TO DO убрать в другой класс
+            if (effect.TryGetParameter<int>(EffectId.MOVE_SPEED, out var speed)) //TO DO убрать в другой класс
             {
                 _player.Speed += speed;
             }

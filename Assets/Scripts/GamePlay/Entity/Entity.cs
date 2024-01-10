@@ -10,6 +10,11 @@ public class Entity : IEntity
     {
         _components.Add(components);
     }
+    
+    public void AddComponent(params object[] components)
+    {
+        _components.Add(components);
+    }
 
     T IEntity.Get<T>()
     {

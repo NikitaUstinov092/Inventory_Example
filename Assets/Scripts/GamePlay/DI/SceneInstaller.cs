@@ -17,7 +17,6 @@ public class SceneInstaller : MonoInstaller<SceneInstaller>
         Container.BindInterfacesAndSelfTo<UComponenet_Effector>().AsSingle();
         Container.BindInterfacesAndSelfTo<UEffector>().FromComponentsInHierarchy().AsSingle();
         
-        
         Container.BindInterfacesAndSelfTo<EquipmentApplier>().AsSingle();
         Container.BindInterfacesAndSelfTo<EquipmentEffectsApplier>().AsSingle();
         

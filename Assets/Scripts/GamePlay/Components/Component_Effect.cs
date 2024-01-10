@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 [Serializable]
     public sealed class Component_Effect : IComponent_GetEffect
