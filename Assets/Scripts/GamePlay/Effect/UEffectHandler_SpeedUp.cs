@@ -1,9 +1,10 @@
 using Game.GameEngine.Mechanics;
-using UnityEngine;
+using Zenject;
+
 public class UEffectHandler_SpeedUp : UEffectHandler
 {
-    [SerializeField] 
-    private Player _player;
+    [Inject] 
+    private Player _player; //TO DO переделать на интерфейс
     public override void OnApply(IEffect effect)
     {
         if (effect.TryGetParameter<int>(EffectId.MOVE_SPEED, out var speed)) 
@@ -13,7 +14,7 @@ public class UEffectHandler_SpeedUp : UEffectHandler
     }
     public override void OnDiscard(IEffect effect)
     {
-        if (effect.TryGetParameter<int>(EffectId.MOVE_SPEED, out var speed)) //TO DO убрать в другой класс
+        if (effect.TryGetParameter<int>(EffectId.MOVE_SPEED, out var speed)) 
         {
             _player.Speed -= speed;
         }

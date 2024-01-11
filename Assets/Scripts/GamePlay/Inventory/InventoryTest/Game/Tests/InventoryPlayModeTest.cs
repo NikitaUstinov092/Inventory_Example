@@ -16,23 +16,29 @@ public class InventoryPlayModeTest: ZenjectIntegrationTestFixture
     
     private void BindDependencies()
     {
-        Container.Bind<EquipmentController>().FromNewComponentOnNewGameObject().AsSingle();
+        Container.Bind<Player>().FromNewComponentOnNewGameObject().AsSingle();
+        
         Container.Bind<InventoryContext>().FromNewComponentOnNewGameObject().AsSingle();
         Container.Bind<InventoryItemEquipper>().FromNewComponentOnNewGameObject().AsSingle();
-       
         Container.Bind<InventoryObserversContainer>().AsSingle();
         Container.BindInterfacesTo<InventoryAdapter>().AsSingle();
-        
+   
+        Container.BindInterfacesAndSelfTo<UEffector>().AsSingle();
+        Container.BindInterfacesTo<EffectsAdapter>().AsSingle();
+    
         Container.BindInterfacesAndSelfTo<UComponent_Equipment>().AsSingle();
         Container.BindInterfacesAndSelfTo<UComponenet_Effector>().AsSingle();
-        Container.BindInterfacesAndSelfTo<UEffector>().FromNewComponentOnNewGameObject().AsSingle();
-        
+    
+        Container.Bind<EquipmentController>().FromNewComponentOnNewGameObject().AsSingle();
         Container.BindInterfacesAndSelfTo<EquipmentApplier>().AsSingle();
         Container.BindInterfacesAndSelfTo<EquipmentEffectsApplier>().AsSingle();
-        
+    
         Container.BindInterfacesAndSelfTo<PlayerEntity>().AsSingle();
         Container.BindInterfacesTo<PlayerEntityInstaller>().AsSingle();
         Container.BindInterfacesTo<HeroService>().AsSingle();
+   
+        Container.BindInterfacesAndSelfTo<UEffectHandler_MeleeDamage>().AsSingle();
+        Container.BindInterfacesAndSelfTo<UEffectHandler_SpeedUp>().AsSingle();
     }
 
     private void ResolveDependencies()
@@ -78,7 +84,7 @@ public class InventoryPlayModeTest: ZenjectIntegrationTestFixture
         //Предустановка
         
         PreInstall();
-
+    
         BindDependencies();
         ResolveDependencies();
        
@@ -97,8 +103,12 @@ public class InventoryPlayModeTest: ZenjectIntegrationTestFixture
     private void SetUpInventoryItem(string itemName, int itemId)
     {
         const InventoryItemFlags itemFlags = InventoryItemFlags.EQUPPABLE | InventoryItemFlags.EFFECTIBLE;
+        
+        var effect = new Effect(new IntEffectParameter(EffectId.DAMAGE, 10));
+        var effectComponent = new Component_Effect(effect);
+        
         var equipmentComp = new Component_Equipment() as IComponent_SetEquipmentID;
-        var effectComponent = new Component_Effect();
+        
         var config = _inventoryConfigFactory.GetConfig(itemName, itemId, itemFlags,equipmentComp, effectComponent);
         
         _equipmentControllerInstaller.InstallEquipmentController(_equipmentController, itemName, itemId);

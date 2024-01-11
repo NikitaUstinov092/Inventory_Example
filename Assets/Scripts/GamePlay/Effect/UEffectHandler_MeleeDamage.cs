@@ -1,10 +1,10 @@
 using Game.GameEngine.Mechanics;
-using UnityEngine;
+using Zenject;
 
-    public sealed class UEffectHandler_MeleeDamage : UEffectHandler
+public class UEffectHandler_MeleeDamage : UEffectHandler
     {
-        [SerializeField] 
-        private Player _player;
+        [Inject] 
+        private Player _player; //TO DO переделать на интерфейс
         
         public override void OnApply(IEffect effect)
         {
@@ -15,9 +15,9 @@ using UnityEngine;
         }
         public override void OnDiscard(IEffect effect)
         {
-            if (effect.TryGetParameter<float>(EffectId.DAMAGE, out var multiplier))
+            if (effect.TryGetParameter<int>(EffectId.DAMAGE, out var damageMultiplier))
             {
-                _player.Damage -= (int)multiplier;
+                _player.Damage -= damageMultiplier;
             }
         }
     }

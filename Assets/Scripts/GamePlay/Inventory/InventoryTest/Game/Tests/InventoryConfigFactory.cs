@@ -13,15 +13,12 @@ namespace GamePlay.Inventory.InventoryTest.Game.Tests
                     SetEquipmentData(setIdComp, id);
                 }
             }
-
             return CreateScriptableObjectConfig(itemName,flags, components);
         }
-        
         private void SetEquipmentData(IComponent_SetEquipmentID setIdComp, int id)
         {
             setIdComp.SetEquipmentID(id);
         }
-
         private InventoryItemConfig CreateScriptableObjectConfig(string itemName, InventoryItemFlags flags, object[] components)
         {
             var config =  ScriptableObject.CreateInstance<InventoryItemConfig>();
@@ -29,8 +26,7 @@ namespace GamePlay.Inventory.InventoryTest.Game.Tests
             var item = new InventoryItem(itemName, flags, new InventoryItemMetadata(), components);
             config.Item = item;
             return config;
-        } 
-        
+        }
     }
 
     public class EquipmentControllerInstaller

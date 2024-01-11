@@ -1,20 +1,20 @@
-using Elementary;
-using UnityEngine;
 using Zenject;
 
-public class EffectsAdapter : MonoBehaviour, IInitializable
+public class EffectsAdapter :  IInitializable
 {
-    [Inject]
     private UEffector _effector;
-   
-    [SerializeField]
-    private MonoEffectHandler<IEffect>[] _handlers;
+    private DiContainer _container;
 
+    [Inject]
+    private void Construct(DiContainer container)
+    {
+        _effector = container.Resolve<UEffector>();
+        _container = container;
+    }
+    
     void IInitializable.Initialize()
     {
-        foreach (var handler in _handlers)
-        {
-            _effector.AddHandler(handler);
-        }
+        _effector.AddHandler(_container.Resolve<UEffectHandler_MeleeDamage>());
+        _effector.AddHandler(_container.Resolve<UEffectHandler_SpeedUp>());
     }
 }

@@ -1,7 +1,4 @@
 using System;
-
-namespace Elementary
-{
     public interface IEffector<T>
     {
         event Action<T> OnApplied;
@@ -16,4 +13,3 @@ namespace Elementary
 
         T[] GetEffects();
     }
-}

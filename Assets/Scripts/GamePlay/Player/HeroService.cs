@@ -1,4 +1,3 @@
-using UnityEngine;
 using Zenject;
 
 public class HeroService : IHeroService
@@ -10,9 +9,5 @@ public class HeroService : IHeroService
    {
       return _hero;
    }
-   // public void SetEntity(Entity entity)
-   // {
-   //    _hero = entity;
-   // }
 }
 

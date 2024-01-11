@@ -1,13 +1,11 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using Elementary;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace Elementary
-{
-    public class MonoEffector<T> : IEffector<T>
+    public class Effector<T> : IEffector<T>
     {
         public event Action<T> OnApplied;
 
@@ -69,4 +67,3 @@ namespace Elementary
             return _effects.ToArray();
         }
     }
-}
