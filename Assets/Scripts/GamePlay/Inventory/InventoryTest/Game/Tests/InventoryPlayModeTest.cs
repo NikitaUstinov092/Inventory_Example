@@ -87,7 +87,6 @@ public class InventoryPlayModeTest: ZenjectIntegrationTestFixture
         //Установка
         
         var itemName = "Hat";
-        var itemId = 0;
        
         //Действие и Проверка
         

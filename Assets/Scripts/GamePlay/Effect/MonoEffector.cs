@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace Elementary
 {
-    public abstract class MonoEffector<T> : MonoBehaviour, IEffector<T>
+    public class MonoEffector<T> : IEffector<T>
     {
         public event Action<T> OnApplied;
 
@@ -21,6 +22,12 @@ namespace Elementary
         [SerializeField]
         private List<MonoEffectHandler<T>> _handlers = new();
 
+
+        public void AddHandler( MonoEffectHandler<T> handler)
+        {
+            _handlers.Add(handler);
+        }
+        
         [Title("Methods")]
         [Button]
         public void Apply(T effect)

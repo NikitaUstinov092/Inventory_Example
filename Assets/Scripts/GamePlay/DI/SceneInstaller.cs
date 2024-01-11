@@ -15,7 +15,9 @@ public class SceneInstaller : MonoInstaller<SceneInstaller>
         
         Container.BindInterfacesAndSelfTo<UComponent_Equipment>().AsSingle();
         Container.BindInterfacesAndSelfTo<UComponenet_Effector>().AsSingle();
-        Container.BindInterfacesAndSelfTo<UEffector>().FromComponentsInHierarchy().AsSingle();
+        Container.BindInterfacesAndSelfTo<UEffector>().AsSingle();
+        Container.BindInterfacesTo<EffectsAdapter>().FromComponentsInHierarchy().AsSingle();
+        
         
         Container.BindInterfacesAndSelfTo<EquipmentApplier>().AsSingle();
         Container.BindInterfacesAndSelfTo<EquipmentEffectsApplier>().AsSingle();
@@ -23,9 +25,5 @@ public class SceneInstaller : MonoInstaller<SceneInstaller>
         Container.BindInterfacesAndSelfTo<PlayerEntity>().AsSingle();
         Container.BindInterfacesTo<PlayerEntityInstaller>().AsSingle();
         Container.BindInterfacesTo<HeroService>().AsSingle();
-        
-        
-        
-        
     }
 }
