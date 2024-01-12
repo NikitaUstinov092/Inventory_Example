@@ -42,11 +42,9 @@ public class SceneInstaller : MonoInstaller<SceneInstaller>
         Container.BindInterfacesTo<PlayerEntityInstaller>().AsSingle();
         Container.BindInterfacesTo<HeroService>().AsSingle();
     }
-
     private void BindHandlers()
     {
         Container.BindInterfacesAndSelfTo<UEffectHandler_MeleeDamage>().AsSingle();
         Container.BindInterfacesAndSelfTo<UEffectHandler_SpeedUp>().AsSingle();
     }
-    
 }

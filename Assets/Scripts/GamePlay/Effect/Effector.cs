@@ -18,10 +18,9 @@ using UnityEngine.Serialization;
         [FormerlySerializedAs("handlers")]
         [Space]
         [SerializeField]
-        private List<MonoEffectHandler<T>> _handlers = new();
-
-
-        public void AddHandler( MonoEffectHandler<T> handler)
+        private List<EffectHandler<T>> _handlers = new();
+        
+        public void AddHandler( EffectHandler<T> handler)
         {
             _handlers.Add(handler);
         }

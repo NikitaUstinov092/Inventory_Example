@@ -31,11 +31,23 @@ namespace GamePlay.Inventory.InventoryTest.Game.Tests
 
     public class EquipmentControllerInstaller
     {
-        public void InstallEquipmentController(EquipmentController equipmentController, string itemName, int id)
+        public void InstallEquipment(EquipmentController equipmentController,  int id)
         {
-            var gameObject = new GameObject(itemName);
-            gameObject.SetActive(false);
-            equipmentController.SetUp(gameObject);
+            var lenght = id;
+            lenght += 1;
+
+            var objNumber = 1;
+
+            var objects = new GameObject[lenght];
+            
+            for (var i = 0; i < lenght; i++)
+            {
+                var gameObject = new GameObject($"Объект #{objNumber}");
+                gameObject.SetActive(false);
+                objects[i] = gameObject;
+                objNumber++;
+            }
+            equipmentController.SetUp(objects);
         }
     }
 }

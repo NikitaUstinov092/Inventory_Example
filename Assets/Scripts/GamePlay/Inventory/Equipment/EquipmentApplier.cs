@@ -6,11 +6,6 @@ namespace DefaultNamespace.InventoryAppliers
     {
         private IEntity _hero;
 
-        // public EquipmentApplier(IEntity hero)
-        // {
-        //     _hero = hero;
-        // }
-
         [Inject]
         private void Construct(IEntity hero)
         {

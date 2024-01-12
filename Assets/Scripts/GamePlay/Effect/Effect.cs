@@ -35,9 +35,9 @@ using UnityEngine.Serialization;
 
         public bool TryGetParameter<T>(EffectId name, out T value)
         {
-            for (int i = 0, count = this._parameters.Count; i < count; i++)
+            for (int i = 0, count = _parameters.Count; i < count; i++)
             {
-                var parameter = this._parameters[i];
+                var parameter = _parameters[i];
                 if (parameter.Name == name && parameter is IEffectParameter<T> tParameter)
                 {
                     value = tParameter.Value;

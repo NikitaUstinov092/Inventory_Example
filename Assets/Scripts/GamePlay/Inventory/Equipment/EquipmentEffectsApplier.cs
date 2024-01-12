@@ -6,11 +6,6 @@
         [Inject]
         private readonly IEntity _hero;
 
-        // public EquipmentEffectsApplier(IEntity hero)
-        // {
-        //     _hero = hero;
-        // }
-
         void IEquipmentObserver.OnItemAdded(InventoryItem item)
         {
             if (IsEffectible(item))
